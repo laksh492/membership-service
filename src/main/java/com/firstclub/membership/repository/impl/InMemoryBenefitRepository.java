@@ -1,7 +1,8 @@
-package com.firstclub.membership.repository;
+package com.firstclub.membership.repository.impl;
 
 import com.firstclub.membership.exception.DuplicateEntityException;
 import com.firstclub.membership.model.Benefit;
+import com.firstclub.membership.repository.BenefitRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;

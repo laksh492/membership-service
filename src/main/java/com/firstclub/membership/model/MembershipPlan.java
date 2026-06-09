@@ -15,15 +15,15 @@ public class MembershipPlan {
     private Long id;
     private MembershipPlanType planType;
     private BigDecimal price;
-    private boolean active;
 
-    public MembershipPlan() {
+    public MembershipPlan(MembershipPlanType planType, BigDecimal price) {
         this.id = ID_COUNTER.incrementAndGet();
+        this.planType = planType;
+        this.price = price;
     }
 
     @Override
     public String toString() {
-        return "MembershipPlan{id=" + id + ", planType=" + planType + ", price=" + price
-                + ", active=" + active + "}";
+        return "MembershipPlan{id=" + id + ", planType=" + planType + ", price=" + price + "}";
     }
 }

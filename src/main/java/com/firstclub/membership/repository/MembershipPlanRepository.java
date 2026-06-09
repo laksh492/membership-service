@@ -11,6 +11,4 @@ public interface MembershipPlanRepository {
     Optional<MembershipPlan> findById(Long id);
 
     List<MembershipPlan> findAll();
-
-    List<MembershipPlan> findAllActive();
 }

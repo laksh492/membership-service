@@ -13,4 +13,6 @@ public interface UserMembershipRepository {
     List<UserMembership> findAll();
 
     Optional<UserMembership> findActiveByUserId(Long userId);
+
+    Optional<UserMembership> findLatestByUserId(Long userId);
 }

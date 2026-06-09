@@ -18,8 +18,12 @@ public class Benefit {
     private BigDecimal value;
     private String description;
 
-    public Benefit() {
+    public Benefit(Long tierId, BenefitType benefitType, BigDecimal value, String description) {
         this.id = ID_COUNTER.incrementAndGet();
+        this.tierId = tierId;
+        this.benefitType = benefitType;
+        this.value = value;
+        this.description = description;
     }
 
     @Override

@@ -13,15 +13,9 @@ public class CriteriaEvaluator {
                 || upgradeCriteria.getCriteria().isEmpty()) {
             return true;
         }
-        return evaluate(
-                upgradeCriteria.getCriteria(),
-                upgradeCriteria.getPolicy(),
-                upgradeCriteria.getRequiredCount(),
-                profile);
-    }
-
-    public boolean evaluate(List<Criterion> criteria, MatchPolicy policy, int requiredCount,
-                            UserProfile profile) {
+        List<Criterion> criteria = upgradeCriteria.getCriteria();
+        MatchPolicy policy = upgradeCriteria.getPolicy();
+        int requiredCount = upgradeCriteria.getRequiredCount();
         long passingCount = criteria.stream()
                 .filter(criterion -> criterion.matches(profile))
                 .count();

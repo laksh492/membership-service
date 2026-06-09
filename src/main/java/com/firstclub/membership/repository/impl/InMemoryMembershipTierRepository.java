@@ -1,8 +1,9 @@
-package com.firstclub.membership.repository;
+package com.firstclub.membership.repository.impl;
 
 import com.firstclub.membership.enums.TierType;
 import com.firstclub.membership.exception.DuplicateEntityException;
 import com.firstclub.membership.model.MembershipTier;
+import com.firstclub.membership.repository.MembershipTierRepository;
 
 import java.util.ArrayList;
 import java.util.Comparator;

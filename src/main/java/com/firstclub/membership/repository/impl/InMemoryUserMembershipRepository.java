@@ -1,11 +1,13 @@
-package com.firstclub.membership.repository;
+package com.firstclub.membership.repository.impl;
 
 import com.firstclub.membership.enums.MembershipStatus;
 import com.firstclub.membership.exception.DuplicateEntityException;
 import com.firstclub.membership.model.UserMembership;
+import com.firstclub.membership.repository.UserMembershipRepository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,5 +43,12 @@ public class InMemoryUserMembershipRepository implements UserMembershipRepositor
                 .filter(m -> m.getStatus() == MembershipStatus.ACTIVE)
                 .filter(m -> !m.isExpired(now))
                 .findFirst();
+    }
+
+    @Override
+    public Optional<UserMembership> findLatestByUserId(Long userId) {
+        return store.values().stream()
+                .filter(m -> userId.equals(m.getUserId()))
+                .max(Comparator.comparing(UserMembership::getCreatedAt));
     }
 }

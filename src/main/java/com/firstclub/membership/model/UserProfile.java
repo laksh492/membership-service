@@ -13,8 +13,11 @@ public class UserProfile {
     private int totalOrderCount;
     private BigDecimal monthlyOrderValue = BigDecimal.ZERO;
 
-    public UserProfile(Long userId) {
+    public UserProfile(Long userId, String cohort) {
         this.id = userId;
+        this.cohort = cohort;
+        this.totalOrderCount = 0;
+        this.monthlyOrderValue = BigDecimal.ZERO;
     }
 
     @Override

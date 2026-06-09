@@ -17,22 +17,24 @@ public class MembershipTier {
     private Long id;
     private TierType tierType;
     private BigDecimal purchasePremium;
-    private List<Long> benefitIds = new ArrayList<>();
+    private List<Benefit> benefits = new ArrayList<>();
     private TierUpgradeCriteria upgradeCriteria;
 
-    public MembershipTier() {
+    public MembershipTier(TierType tierType, BigDecimal purchasePremium, TierUpgradeCriteria upgradeCriteria) {
         this.id = ID_COUNTER.incrementAndGet();
+        this.tierType = tierType;
+        this.purchasePremium = purchasePremium;
+        this.upgradeCriteria = upgradeCriteria;
     }
 
     public void addBenefit(Benefit benefit) {
-        benefit.setTierId(this.id);
-        this.benefitIds.add(benefit.getId());
+        this.benefits.add(benefit);
     }
 
     @Override
     public String toString() {
         return "MembershipTier{id=" + id + ", tierType=" + tierType + ", purchasePremium="
-                + purchasePremium + ", benefitIds=" + benefitIds + ", upgradeCriteria="
+                + purchasePremium + ", benefits=" + benefits + ", upgradeCriteria="
                 + upgradeCriteria + "}";
     }
 }

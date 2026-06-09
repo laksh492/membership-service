@@ -1,7 +1,8 @@
-package com.firstclub.membership.repository;
+package com.firstclub.membership.repository.impl;
 
 import com.firstclub.membership.exception.DuplicateEntityException;
 import com.firstclub.membership.model.MembershipPlan;
+import com.firstclub.membership.repository.MembershipPlanRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,12 +30,5 @@ public class InMemoryMembershipPlanRepository implements MembershipPlanRepositor
     @Override
     public List<MembershipPlan> findAll() {
         return new ArrayList<>(store.values());
-    }
-
-    @Override
-    public List<MembershipPlan> findAllActive() {
-        return store.values().stream()
-                .filter(MembershipPlan::isActive)
-                .toList();
     }
 }
